@@ -1,5 +1,5 @@
-/* ===== BASE ===== */
-body {
+/* ===== APP WRAPPER ===== */
+.app {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   padding: 14px;
   max-width: 720px;
@@ -8,15 +8,16 @@ body {
   color: #333;
 }
 
-h2 {
+/* ===== HEADINGS ===== */
+.app h2 {
   font-size: 1.4em;
   margin-bottom: 12px;
 }
 
 /* ===== FORM ELEMENTS ===== */
-input,
-button,
-textarea {
+.app input,
+.app button,
+.app textarea {
   width: 100%;
   padding: 14px;
   margin: 8px 0;
@@ -25,32 +26,32 @@ textarea {
   box-sizing: border-box;
 }
 
-input,
-textarea {
+.app input,
+.app textarea {
   border: 1px solid #ccc;
   resize: vertical;
 }
 
-button {
+.app button {
   border: none;
   cursor: pointer;
   font-weight: 600;
   user-select: none;
 }
 
-button:disabled {
+.app button:disabled {
   background: #aaa;
   cursor: not-allowed;
 }
 
 /* ===== BUTTON VARIANTS ===== */
-.btn-seed     { background: #4caf50; color: #fff; }
-.btn-copy     { background: #2196f3; color: #fff; }
-.btn-edit     { background: #9c27b0; color: #fff; }
-.btn-download { background: #ff9800; color: #fff; }
+.app .btn-seed     { background: #4caf50; color: #fff; }
+.app .btn-copy     { background: #2196f3; color: #fff; }
+.app .btn-edit     { background: #9c27b0; color: #fff; }
+.app .btn-download { background: #ff9800; color: #fff; }
 
 /* ===== STATUS & STATS ===== */
-.status {
+.app .status {
   background: #e3f2fd;
   padding: 12px;
   border-radius: 10px;
@@ -58,7 +59,7 @@ button:disabled {
   font-size: 0.95em;
 }
 
-.stats {
+.app .stats {
   background: #f1f8e9;
   padding: 12px;
   border-radius: 10px;
@@ -66,12 +67,12 @@ button:disabled {
   font-size: 0.9em;
 }
 
-.stats div {
+.app .stats div {
   margin: 4px 0;
 }
 
-/* ===== CODE / PREVIEW ===== */
-pre {
+/* ===== LOG / PRE ===== */
+.app pre {
   background: #111;
   color: #0f0;
   padding: 10px;
@@ -82,12 +83,13 @@ pre {
   margin-top: 12px;
 }
 
-#telegram-preview {
+/* ===== TELEGRAM ===== */
+.app #telegram-preview {
   margin-top: 8px;
 }
 
 /* ===== MESSAGE LIST ===== */
-.message {
+.app .message {
   background: #f5f5f5;
   margin-bottom: 8px;
   padding: 8px;
@@ -97,11 +99,11 @@ pre {
   align-items: center;
 }
 
-.message.latest {
+.app .message.latest {
   background: #ffffcc;
 }
 
-button.copyBtn {
+.app button.copyBtn {
   margin-left: 10px;
   padding: 4px 8px;
   font-size: 0.9em;
@@ -112,24 +114,24 @@ button.copyBtn {
   flex-shrink: 0;
 }
 
-/* ===== INPUT LAYOUT ===== */
-.input-row {
+/* ===== INPUT ROW ===== */
+.app .input-row {
   display: flex;
   gap: 10px;
   align-items: center;
 }
 
-#magnet {
+.app #magnet {
   flex: 1;
   min-width: 0;
 }
 
 /* ===== FILE INPUT ===== */
-#fileInput {
+.app #fileInput {
   display: none;
 }
 
-.file-btn {
+.app .file-btn {
   padding: 10px 14px;
   border-radius: 10px;
   background: #e0e0e0;
@@ -139,20 +141,39 @@ button.copyBtn {
   user-select: none;
 }
 
+/* ===== UPDATE LOG ===== */
+.app #update-log {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background: #f9f9f9;
+  height: 150px;
+  overflow-y: auto;
+  font-family: monospace;
+  font-size: 13px;
+  white-space: pre-wrap;
+}
+
+.app #update-log .log-entry {
+  margin-bottom: 4px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 2px;
+}
+
 /* ===== BUTTON ROW ===== */
-.btn-row {
+.app .btn-row {
   display: flex;
   gap: 10px;
 }
 
-.btn-row button {
+.app .btn-row button {
   flex: 1;
   width: auto;
   margin: 8px 0;
 }
 
 /* ===== LOG CARD ===== */
-.log-card {
+.app .log-card {
   margin-top: 12px;
   padding: 10px 12px;
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -162,65 +183,27 @@ button.copyBtn {
   line-height: 1.45;
   max-height: 260px;
   overflow-y: auto;
-  color: #333;
-}
-
-.log-card .log-item {
-  padding: 6px 0;
-  border-bottom: 1px dashed rgba(0, 0, 0, 0.08);
-}
-
-.log-card .log-item:last-child {
-  border-bottom: none;
-}
-
-.log-card .log-time {
-  font-size: 0.75em;
-  color: #888;
-  margin-bottom: 2px;
 }
 
 /* ===== HIDDEN ===== */
-.hidden,
-#floatingStats,
-#legacyStats {
+.app .hidden,
+.app #floatingStats,
+.app #legacyStats {
   display: none !important;
 }
 
 /* ===== MOBILE ===== */
 @media (max-width: 520px) {
-  body {
+  .app {
     padding: 10px;
     max-width: 100%;
   }
 
-  .input-row {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .file-btn {
-    padding: 12px;
-    font-size: 1em;
-    text-align: center;
-  }
-
-  input,
-  textarea,
-  button {
-    font-size: 1em;
-    padding: 12px;
-  }
-
-  .btn-row {
+  .app .input-row {
     flex-direction: column;
   }
 
-  .btn-row button {
-    margin: 6px 0;
-  }
-
-  pre {
+  .app pre {
     height: 120px;
     font-size: 10px;
   }
